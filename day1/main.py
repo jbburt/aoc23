@@ -29,7 +29,6 @@ def find(s: str, reverse: bool = False) -> str:
     i = -1 if reverse else 0
     term = (-1 if reverse else 1) * len(s)
     op = "__lt__" if not reverse else "__gt__"
-
     while getattr(i, op, term):
         if s[i].isnumeric():
             return s[i]
@@ -44,7 +43,5 @@ def find(s: str, reverse: bool = False) -> str:
 total = 0
 for line in text.splitlines():
     val = int(find(line) + find(line, reverse=True))
-    # print(line, val)
     total += val
 print(total)
-# find("two1nine", True)
